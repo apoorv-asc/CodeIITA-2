@@ -1,0 +1,67 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        .pic-border{
+            box-shadow: 0 5px 11px 0 rgba(0,0,0,0.38), 0 4px 35px 0 rgba(0,0,0,0.35); 
+        }
+        .middle-fixed{
+            position: fixed;
+            transform: translate(-40px,250px);
+        }
+    </style>
+</head>
+<body>
+<%- include("partials/header"); %>
+
+<% Object.keys(blog).forEach(function(key){ %>
+<% var blg = blog[key]; var q=blg.title;%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="middle-fixed">
+            <% if(user==''){ %>
+                <p>
+                    <a href="#" onclick="runAlert()"><img src="/images/clap.png" width="30px"></a> 
+                    <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.likes %></span>
+                </p>
+                <p style="font-size: 20px;"><i class="fas fa-feather-alt"> </i> : 
+                    <span style="font-size: 20px;color: rgb(134, 132, 132);"><%=blg.author %></span>
+                </p>
+            <%} else{ %>
+                <p><a href="#"><img src="/images/clap.png" width="30px"></a> <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.likes %></span></p>
+                <p style="font-size: 20px;"><i class="fas fa-feather-alt"> </i> :<span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.author %></span></p>
+            <% } %>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <br><br><br>
+            <h1 style="text-align: center;font-size: 50px;font-family: 'Times New Roman', Times, serif;font-weight: 500;"><%= blg.title %></h1>
+            <br><br><br>
+            <img class="pic-border" src="<%=blg.piclink%>" width="100%"><br><br>
+            <p id="blog_body" style="font-size: 25px;text-align: justify;font-family: Georgia, 'Times New Roman', Times, serif;"><%= blg.intro %></p>
+            <a style="position: relative;left: 40%;" class="ui inverted purple button" href="<%= blg.link %>">Click here to open</a>
+            <br><br><br>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<% }); %>
+</body>
+<script type="text/javascript">
+var q=document.getElementById("innerhtml");
+var cv=document.getElementById("blog_body");
+
+console.log("Hey there");
+
+var mind=q.innerHTML;
+q.textContent="";
+if(mind=='true'){
+    cv.innerHTML=cv.textContent;
+}
+</script>
+</html>

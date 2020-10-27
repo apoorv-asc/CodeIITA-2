@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<%- include("partials/header"); %>
+<br><br>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Manage your blogs</h1>
+    </div>
+    <div class="row" style="display:flex;flex-wrap:wrap;">
+        <% Object.keys(blogs).forEach(function(key){ %>
+            <% var blog=blogs[key]; %>
+            <div class="col-md-4">
+                <p style="font-weight: 600;font-size: 40px;"><%= blog.title %></p>
+                <a href="/blog/delete/<%= blog.id %>" class="btn btn-danger">Delete blog</a>
+                <a href="/blog/edit/<%= blog.id %>" class="btn btn-warning">Edit blog</a>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+
+
+<%- include("partials/footer"); %>

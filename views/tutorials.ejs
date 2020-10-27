@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        html,body{
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: black;
+        }
+        .page-cover{
+            max-width: 100%;
+            height: 100%;
+        }
+        .middle-q{
+            position: relative;
+            left: 38%;
+            top: 40%;
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<%- include("partials/header"); %>
+
+<div class="page-cover">
+    <h1 class="middle-q" style="font-family: 'Fredoka One', cursive;color: white;">Tutorials</h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <img src="/images/frame.png">
+        <h1 style="transform:translate(70px,-635px);font-family: 'Playfair Display', serif;text-align: center;">Web Development using<br> NodeJS</h1>
+        <p style="transform:translate(70px,-630px);font-size: 20px;text-align: center;"><br><br>Check out some of the best<br> NodeJS tutorials<br> right here</p>
+        <button style="transform:translate(362px,-593px);" class="ui inverted purple button"><a href="/webdev-nodejs/yEHCfRWz-EI" style="color: white;">Check it right now</a></button>
+            
+    </div>
+    <div class="col-md-6">
+        <img src="/images/frame.png">
+        <h1 style="transform:translate(70px,-635px);font-family: 'Playfair Display', serif;text-align: center;">Data Structures<br></h1>
+        <p style="transform:translate(70px,-630px);font-size: 20px;text-align: center;"><br><br>All you need to know about <br><strong>Data Structures</strong><br> is here<br>Do check it out</p>
+        <button style="transform:translate(362px,-593px);" class="ui inverted purple button"><a href="#" style="color: white;">Check it right now</a></button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <img src="/images/frame.png" style="transform: translate(335px,-400px);">
+    </div>
+    <div class="col-md-6">
+        <h1 style="transform:translate(-365px,-90px);font-family: 'Playfair Display', serif;text-align: center;">Algorithms</h1>
+        <p style="transform:translate(-365px,-90px);font-size: 20px;text-align: center;"><br><br>Check out some of the best<br> Algorithms<br> right here</p>
+        <button style="transform:translate(-75px,-45px);" class="ui inverted purple button"><a href="/algorithms/xXKL9YBWgCY" style="color: white;">Check it right now</a></button>
+    </div>
+</div>
+
+<%- include("partials/footer"); %>

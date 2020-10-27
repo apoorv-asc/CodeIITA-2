@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+      .border-image{
+        box-shadow: 0 5px 11px 0 rgba(0,0,0,0.28), 0 4px 15px 0 rgba(0,0,0,0.28);
+        border-radius: 1.5%;
+      }
+      .white-box{
+        height: 280px;
+        width: 753px;
+        background-color: white;
+        border-radius: 0.5%;
+        transform:translate(50px,-65px);
+        box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);        
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header"); %>
+    <div>
+      <% if(user!=''){ %>
+      <a class="btn btn-lg btn-info" href="/add_blogs" style="position: absolute; right: 40px;top: 80px;">Create new blog</a>
+      <a class="btn btn-lg btn-warning" href="/blogs/manage" style="position: absolute; right: 40px;top: 140px;">Manage your blogs</a>
+      <% } %>
+  </div>
+  <br><br>
+    <div class="container">
+      <% Object.keys(blogs).forEach(function(key){ %>
+      <% blg=blogs[key] %>
+      <div class="row" >
+        <div class="col-md-1"></div>
+        <div class="col-md-10" >
+          <img class="border-image" src="<%= blg.piclink %>" width="90%" height="50%">
+          <div class="white-box">
+            <p style="font-size: 30px;font-family: 'Times New Roman', Times, serif;text-align: center;"><%= blg.title %></p>
+            <br><br>
+            <p style="padding: 0% 1%;font-size:135%;text-align: justify ;font-family: Arial, Helvetica, sans-serif;"><%= blg.intro %></p>
+            <a class="ui primary button" style="right: 10px; position: absolute;" href="/blogs/<%= blg.id %>">Explore</a>
+          </div>
+          
+          
+          
+        </div>
+        <div class="col-md-1"></div>
+        
+      </div>
+      <% }); %>
+  </div>
+  </body>
+</html>

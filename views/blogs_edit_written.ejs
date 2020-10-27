@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>CODEIITA</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<%- include("partials/header"); %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Edit Blog</h1>
+    </div>
+
+    <% Object.keys(blog).forEach(function(key){  %>
+    <% blg=blog[key]; %>
+
+    <% }); %>
+    
+    <form method="POST" onsubmit="success()" action="/blogs/update/<%= blg.id %>">
+        <input type="text" name="type" value="written" hidden>
+        <input type="text" name="author" value="<%= user %>" hidden>
+        <input type="text" name="likes" value="<%= blg.likes %>" hidden>
+        <input type="text" name="innerhtml" value="<%= blg.innerhtml %>" hidden>
+        <div class="form-group">
+            Title of the blog
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="title" placeholder="title" value="<%= blg.title %>">
+        </div>
+        <div class="form-group">
+            Link of pic
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="piclink" placeholder="Picture's link" value="<%= blg.piclink %>">
+        </div>
+        <div class="form-group">
+            Body of the blog
+        </div>
+        <div class="form-group">
+            <textarea  type="text" name="body" rows="20" cols="160" placeholder="body" ><%= blg.body %></textarea>
+        </div>
+        <input type="submit" value="update blog">
+    </form>
+
+
+</div>
+<script>
+function success(){
+    swal({
+  icon: "success",
+});
+}
+
+</script>
+
+<%- include("partials/footer"); %>

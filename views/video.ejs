@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>CODEIITA</title>
+    <link rel="icon" href="/images/codiita.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<%- include("partials/header"); %>
+<%- include("partials/sidenavpush"); %>
+<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+
+<a style="margin: 10px;" class="btn btn-danger" href="/tutorials">Back</a><br>
+
+
+<% Object.keys(result2).forEach(function(key){ %>
+<% var row = result2[key]; %>
+<div class="container">
+    <h1 style="text-align:center; font-family: 'Sansita Swashed', cursive; font-size: 50px;"><%= row.title %><br><br><br></h1>
+    <div class="row">
+        <div class="col-md-2">
+            <% if(user==''){ %>
+                <p>
+                    <a href="#" onclick="runAlert()"><img src="/images/clap.png" width="30px"></a> 
+                    <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=row.likes %></span>
+                </p>
+            <%} else{ %>
+                <p><a href="/tutorials/<%= row.embedded %>/like"><img src="/images/clap.png" width="30px"></a> <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=row.likes %></span></p>
+            <% } %>
+        </div>
+        <div class="col-md-8">
+            <iframe width="120%" height="70%" src="https://www.youtube.com/embed/<%= row.embedded %>" 
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <p><br><br><br></p>
+</div>
+
+
+<% }); %>
+
+<%- include("partials/sidenavpushjs"); %>
+<%- include("partials/footer"); %>
+<script>
+    function runAlert(){
+        swal({
+  icon: "error",
+  button:" Please login first",
+});
+    }
+</script>

@@ -1,0 +1,79 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        .pic-border{
+            box-shadow: 0 5px 11px 0 rgba(0,0,0,0.38), 0 4px 35px 0 rgba(0,0,0,0.35); 
+        }
+        .middle-fixed{
+            position: fixed;
+            transform: translate(40px,250px);
+        }
+    </style>
+    <style>
+        body,html{
+            overflow-x: hidden;
+        }
+        p{
+            font-size: 20px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+<%- include("partials/header"); %>
+
+<% Object.keys(blog).forEach(function(key){ %>
+<% var blg = blog[key]; var q=blg.title;%>
+<!-- <div class="container"> -->
+    <div class="row">
+        <div class="col-md-2">
+            <div class="middle-fixed">
+            <% if(user==''){ %>
+                <p>
+                    <a href="#" onclick="runAlert()"><img src="/images/clap.png" width="30px"></a> 
+                    <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.likes %></span>
+                </p>
+                <p style="font-size: 20px;"><i class="fas fa-feather-alt"> </i> : 
+                    <span style="font-size: 20px;color: rgb(134, 132, 132);"><%=blg.author %></span>
+                </p>
+                <p id="innerhtml"><%= blg.innerhtml %></p>
+            <%} else{ %>
+                <p><a href="#"><img src="/images/clap.png" width="30px"></a> <span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.likes %></span></p>
+                <p style="font-size: 20px;"><i class="fas fa-feather-alt"> </i> :<span style="font-size: 20px;color: rgb(134, 132, 132);"> <%=blg.author %></span></p>
+                <p id="innerhtml"><%= blg.innerhtml %></p>
+            <% } %>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <br><br><br>
+            <h1 style="text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 50px;"><%= blg.title %></h1>
+            <br><br><br>
+            <img src="<%= blg.piclink %>" width="100%"><br><br><br>
+            <p id="blog_body"><%= blg.body %></p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+<!-- </div> -->
+
+<% }); %>
+</body>
+<script type="text/javascript">
+function runAlert(){
+    alert("Please log in first");
+}
+var q=document.getElementById("innerhtml");
+var cv=document.getElementById("blog_body");
+
+console.log("Hey there");
+
+var mind=q.innerHTML;
+q.textContent="";
+if(mind=='true'){
+    cv.innerHTML=cv.textContent;
+}
+</script>
+</html>

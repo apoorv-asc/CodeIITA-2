@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>CODEIITA</title>
+    <link rel="icon" href="/images/codiita.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #B61924;
+        }
+        .mid{
+            transform: translate(-15px,250px);
+            padding: 35px 30px 10px 30px;
+            border: 3px solid #EEEEEE;
+            border-radius: 10px;
+            background-color: #EEEEEE;
+        }
+        #particles-js {
+    /* stay in a constant spot on the page, regardless of scroll */
+    position: fixed;
+    /* fill the entire page */
+    width: 100%;
+    height: 100%;
+    /* remove the space along the edges */ 
+    margin: 0;
+    padding: 0;
+    /* position it to start at the top of the page */
+    top: 0;
+    /* put it behind other content */
+    z-index: -1;
+}
+    </style>
+</head>
+<body id="particles-js">
+<%- include("partials/header"); %>
+<div >
+<div class="container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mid">
+        <form action="/signin" method="POST">
+
+            <div class="form-group">
+                <h2 style="transform: translate(90px,-10px);">S I G N - I N<br></h2>
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" style="transform: translate(127px,7px);" value="Signup">
+            </div>
+        
+        </form>
+        
+    </div>
+    <div class="col-md-4"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="/javascript/particles.js"></script>
+<script type="text/javascript" src="/javascript/app.js"></script>
+<%- include("partials/footer"); %>
