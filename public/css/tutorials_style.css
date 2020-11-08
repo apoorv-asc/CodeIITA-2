@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600");
+
+
+.title {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 250px;
+  transform: translateX(-50%) translateY(-50%);
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  width: 100%;
+}

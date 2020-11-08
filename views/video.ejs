@@ -1,11 +1,33 @@
 <html>
 <head>
     <title>CODEIITA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/codiita.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        html,body{
+            overflow-x: hidden;
+        }
+        #img-size{
+            height: 5%;
+        }
+        .img-pos{
+            position: absolute;
+            left: -4.8%;
+            top: 18%;
+        }
+        .form-comment{
+            width: 30%;
+            border: 2px solid grey;
+            border-radius: 10px;
+            width: 50%;
+            height: 5%;
+        }
+    </style>
 </head>
 <body>
 <%- include("partials/header"); %>
@@ -37,7 +59,61 @@
         <div class="col-md-2"></div>
     </div>
     <p><br><br><br></p>
+
 </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 box">
+            
+            <h2 style="font-family: 'Kaushan Script', cursive;font-size: 65px;">Comments</h2>
+            <% if(user!=''){ %>
+            <form action="/post_comment/<%= row.section %>/<%= row.embedded %>" method="POST">
+                <input type="text" class="form-comment" name="comment">
+            </form>
+            <% } %>
+        
+            <% Object.keys(result3).forEach(function(key2){  %>
+            <% var comment=result3[key2];  %>
+                
+            <div class="ui comments">
+                <div class="comment">
+                  <a class="avatar" id="img-size">
+                    <img src="/images/avatar/small/stevie.jpg" height="9">
+                  </a>
+                  <div class="content">
+                    <a class="author"><%= comment.author %></a>
+                    <div class="metadata">
+                      <div class="date">2 days ago</div>
+                      <div class="rating">
+                        
+                            <img src="/images/clap.png" width="19px">
+                            &ensp;<%= comment.likes %> claps
+                        
+                      </div>
+                    </div>
+                    <div class="text">
+                      <%= comment.comment %>
+                    </div>
+                  </div>
+                <% if(user==''){ %>
+                        <a href="#" onclick="runAlert()">
+                            <i style="color: greenyellow;" class="fas fa-arrow-circle-up img-pos fa-2x"></i>
+                        </a>
+                <%} else{ %>
+                    <a href="/upvote/<%= comment.id %>/<%= comment.likes %>/<%= row.section %>/<%= row.embedded %>">
+                        <i style="color: greenyellow;" class="fas fa-arrow-circle-up img-pos fa-2x"></i>
+                    </a>
+                    <% } %>
+                </div>
+              </div>
+                  
+            <% }) %>
+                  
+        
+        <div class="col-md-2"></div>
+    </div>
+    
+
 
 
 <% }); %>

@@ -40,6 +40,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Comments</th>
                 <th>Likes</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -49,6 +50,7 @@
             <tr>
                 <td><%= node.id %></td>
                 <td><%= node.title %></td>
+                <td><a href="/edit_comments/<%= node.embedded %>" class="btn btn-danger">Modify Comment</a></td>
                 <td><%= node.likes %></td>
                 <td><a class="btn btn-info" href="/superuser/edit/<%= node.section %>/<%= node.id %>">Edit</a></td>
                 <td><a class="btn btn-danger" href="/superuser/delete/<%= node.section %>/<%= node.id %>">Delete</a></td>
@@ -62,6 +64,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Comments</th>
                 <th>Likes</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -71,6 +74,7 @@
                 <tr>
                     <td><%= ds.id %></td>
                     <td><%= ds.title %></td>
+                    <td><a href="/edit_comment/<%= node.embedded %>" class="btn btn-danger">Modify Comment</a></td>
                     <td><%= ds.likes %></td>
                     <td><a class="btn btn-info" href="/superuser/edit/<%= ds.section %>/<%= ds.id %>">Edit</a></td>
                     <td><a class="btn btn-danger" href="/superuser/delete/<%= ds.section %>/<%= ds.id %>">Delete</a></td>
@@ -84,6 +88,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Comments</th>
                 <th>Likes</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -93,6 +98,7 @@
                 <tr>
                     <td><%= alg.id %></td>
                     <td><%= alg.title %></td>
+                    <td><a href="/edit_comment/<%= node.embedded %>" class="btn btn-danger">Modify Comment</a></td>
                     <td><%= alg.likes %></td>
                     <td><a class="btn btn-info" href="/superuser/edit/<%= alg.section %>/<%= alg.id %>">Edit</a></td>
                     <td><a class="btn btn-danger" href="/superuser/delete/<%= alg.section %>/<%= alg.id %>">Delete</a></td>

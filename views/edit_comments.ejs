@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+        <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+          </style>
+    </head>
+    <body>
+        <%- include("partials/header"); %>
+
+        <div class="container">
+          <div class="row">
+              <br><br>
+              <div class="col-md-5">
+                  <a class="btn btn-info" style="width: 100%;font-size: 35px;" href="/superuser">Add new Tutorial</a>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-5">
+                  <a class="btn btn-info" style="width: 100%;font-size: 35px;" href="/superuser/tables">Edit Tutorials</a>
+              </div>
+          </div>
+          <br><br>
+
+          <p style="font-family: 'Playfair Display', serif;text-align:center;font-size:30px">Comments</p>
+          <table>
+            <tr>
+              <th>Author</th>
+              <th>Comment</th>
+              <th>Delete</tr>
+            </tr>
+
+            <% Object.keys(comments).forEach(function(key){ %>
+            <%  comment=comments[key]; %>
+
+            <tr>
+              <td><%= comment.author %></td>
+              <td style=""><%= comment.comment %></td>
+              <td><a class="btn btn-danger" href="/delete_comment/<%= comment.id %>/<%= comment.embedded %>">Delete</a></td>
+            </tr>
+
+            <% }) %> 
+          </table>
+        
+    </body>
+</html>

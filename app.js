@@ -123,6 +123,22 @@ app.get("/superuser/tables",function(req,res){
     })
 })
 
+app.get("/edit_comments/:embedded",function(req,res){
+    var sql="SELECT * FROM comments WHERE embedded=\""+req.params.embedded+"\"";
+    db.query(sql,function(err,result){
+        if(err)
+            throw err
+        else
+            res.render("edit_comments",{user:useris,comments:result})
+    })
+})
+
+app.get("/delete_comment/:id/:embedded",function(req,res){
+    var sql="DELETE FROM comments WHERE id="+req.params.id;
+    db.query(sql);
+    res.redirect("/edit_comments/"+req.params.embedded);
+})
+
 app.get("/superuser/delete/:section/:id",function(req,res){
     let del="DELETE FROM tutorials WHERE section=\'"+req.params.section+"\' AND id=\'"+req.params.id+"\'";
     db.query(del);
@@ -179,10 +195,15 @@ app.post('/superuser',function(req,res){
 })
 
 app.get("/blogs/manage",function(req,res){
-    let sql="SELECT * FROM blogs WHERE author=\""+useris+"\"";
-    db.query(sql,function(err,result){
+    if(useris!=''){
+        let sql="SELECT * FROM blogs WHERE author=\""+useris+"\"";
+        db.query(sql,function(err,result){
         res.render("manage_blogs",{blogs:result,user:useris});
     })
+    }
+    else{
+        res.redirect("/blogs");
+    }
 })
 
 app.get("/blog/delete/:id",function(req,res){
@@ -290,9 +311,32 @@ app.get("/tutorials/:embedded/like",function(req,res){
     })
 })
 
+app.get("/superuser_login",function(req,res){
+    res.render("superuser_form",{user:useris});
+})
+
+app.get("/password_recovery",function(req,res){
+    res.render("password_recovery",{user:useris});
+})
+
+app.post("/password_recovery",function(req,res){
+
+})
+
+app.get("/upvote/:id/:likes/:section/:embedded",function(req,res){
+    var likes=Number(req.params.likes)+1;
+    db.query(sql,function(err){
+        if(err)
+            throw err;
+        else
+            res.redirect("/"+req.params.section+"/"+req.params.embedded);
+    })
+})
+
 app.get('/:_section/:_embedded',function(req,res){
     let sql1="SELECT * FROM tutorials WHERE section=\""+req.params._section+"\" ORDER BY id ASC";
     let sql2="SELECT * FROM tutorials WHERE section=\""+req.params._section+"\" and embedded=\""+req.params._embedded+"\"";
+    let sql3="SELECT * FROM comments WHERE embedded=\""+req.params._embedded+"\" ORDER BY likes DESC";
     db.query(sql1,function(err1,result1){
         if(err1)
             throw err1;
@@ -301,10 +345,31 @@ app.get('/:_section/:_embedded',function(req,res){
                 if(err2)
                     throw err2;
                 else{
-                    res.render("video",{result1:result1,result2:result2,user:useris});
+                    db.query(sql3,function(err,result3){
+                        if(err)
+                            throw err;
+                        else
+                            res.render("video",{result1:result1,result2:result2,result3:result3,user:useris});
+                    })
                 }
             })
         }
+    })
+})
+
+app.post("/post_comment/:section/:embedded",function(req,res){
+    var cmt={
+        comment:req.body.comment,
+        author:useris,
+        embedded:req.params.embedded,
+        likes:0
+    }
+    var sql="INSERT INTO comments SET ?";
+    db.query(sql,cmt,function(err){
+        if(err)
+            throw err;
+        else
+            res.redirect("/"+req.params.section+"/"+req.params.embedded);
     })
 })
 
@@ -319,7 +384,10 @@ app.get("/blogs",function(req,res){
 })
 
 app.get("/add_blogs",function(req,res){
-    res.render("new_blog",{user:useris});
+    if(useris=='')
+        res.redirect("/blogs");
+    else
+        res.render("new_blog",{user:useris});
 })
 
 app.post("/add_blogs",function(req,res){
