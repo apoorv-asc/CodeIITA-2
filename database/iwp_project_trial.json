@@ -1,0 +1,41 @@
+[
+{"type":"header","version":"5.0.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"iwp project trial"},
+{"type":"table","name":"blogs","database":"iwp project trial","data":
+[
+{"type":"written","title":"Elon Musk’s 2 Rules For Learning Anything Faster","body":"<p>Learning is one of the overcommunicated but underleveraged tools of the common entrepreneur.<br>\r\nEveryone talks about methods of learning, but few people find realistic and authentic techniques that actually yield a net profit in the information and application categories.<br><br>\r\nElon Musk has broken through that barrier with learning techniques that have proven successful not just once, but time and time again.<br><br>\r\nA good argument could be made that Musk has leveraged his learning by becoming a disruptor. He and his companies have shifted entire industries, including the transportation sector, the energy sector, and the space sector.<br><br>\r\nHe recently announced at a press conference that his plans for his biotech company Neuralink are progressing quite nicely, hinting at yet another sector which his hands will likely shift in the coming years.<br><br>\r\nYes, Musk is a once-in-a-lifetime genius. Likely on the same levels as Nikola Tesla, Albert Einstein, Isaac Newton. He has a different way of viewing problems than the average entrepreneur.<br><br>\r\nOf course, he reads hundreds of books. He works with top-level thinkers. He has astronomical levels of funding to put towards his every whim. But that’s not what makes him a great learner.<br><br>\r\nHis learning methods aren’t that regal. In fact, his two rules for how to learn anything faster can be implemented by anyone at any time. Including you.<br><br>\r\nYou, too, can be a rocket scientist, if you wanted. Here’s how.<br><\/p>\r\n<br><br><br>\r\n<p style=\"font-size:30px;font-weight:600\">Identify the different parts of the tree<\/p>\r\n<br><p>When it comes to learning, Musk is quick to note that he believes that most people can learn more than they currently know.<br><br>\r\nWhen it comes to the average entrepreneur, Musk claims that they often don’t break through their perceived limits and try to learn beyond their current capacity. Or, as he goes on to clarify, they don’t know how to outline their information in a way that leads to further revelation.<\/p>\r\n<p style=\"text-align:center;font-weight:600\">Rule #1 — Make sure you’re building a tree of knowledge<\/p>\r\n<p>What does this mean for you practically? It helps the common entrepreneur understand that not everything is weighed with equal gravitas or importance.<br><br>\r\nWhen it comes to learning, there is a difference between material that ends up hanging from a branch and the material that makes up the base of the trunk of your tree.\r\nIt’s the periphery vs. the central.<br><br>\r\nMusk is a master of understanding what is at the core of each of the sectors his entrepreneurial ventures sit in.<br><br><\/p>\r\n<p style=\"font-size:30px;font-weight:800\">Exponential growth<\/p>\r\n<br>\r\n<p>Like any new system, it might take you a bit to get the hang of it. You might actually feel like you are learning slower than you did previously. That’s okay. What you’re actually doing is building the foundation for exponential growth.<br><br>\r\nHenry Ford once said, “If you always do what you’ve always done, you’ll always get what you’ve always got.”<br><br>\r\nIf you want to learn anything faster, try the Elon Musk approach, but be warned. You may end up becoming a rocket scientist far faster than you previously thought possible.<\/p>","link":null,"likes":"2","id":"11","piclink":"https:\/\/miro.medium.com\/max\/875\/1*qWiyMxttCwdDYm7YsVMiQQ.jpeg","author":"Apoorv","innerhtml":"true","intro":"Learning is one of the overcommunicated but underleveraged tools of the common entrepreneur.\r\nEveryone talks about methods of learning, but few people find realistic and authentic techniques that actually yield a net profit in the information and application categories.","date":"2020-10-22"},
+{"type":"link","title":"DE Shaw Placement Experience","body":"Are you wondering which company to apply for during your placement session or how to prepare for one of the well known MNC's... Well if that's the case then DE Shaw must definitely be on your list. Do read this post as it contains almost everything you need to know about DE Shaw's on campus placement drive.","link":"https:\/\/drive.google.com\/file\/d\/1Xcc_P7fZnkv0Bu_sFrwfHZc6UjnzgyHp\/view?usp=sharing","likes":"2","id":"12","piclink":"https:\/\/www.biginternships.com\/wp-content\/uploads\/2018\/10\/D.-E.-Shaw-Internships-for-Students-2019.jpg","author":"code_breaker","innerhtml":null,"intro":"Are you wondering which company to apply for during your placement session or how to prepare for one of the well known MNC's... Well if that's the case then DE Shaw must definitely be on your list. Do read this post as it contains almost everything you need to know about DE Shaw's on campus placement drive.","date":"2020-10-23"}
+]
+}
+,{"type":"table","name":"comments","database":"iwp project trial","data":
+[
+{"comment":"Is this working","author":"Apoorv","embedded":"yEHCfRWz-EI","likes":"3","id":"7"}
+]
+}
+,{"type":"table","name":"tutorials","database":"iwp project trial","data":
+[
+{"id":"1","title":"What is NodeJS","embedded":"yEHCfRWz-EI","likes":"11","section":"webdev-nodejs"},
+{"id":"2","title":"Installing NodeJS","embedded":"JINE4D0Syqw","likes":"2","section":"webdev-nodejs"},
+{"id":"3","title":"Getting started with NodeJS","embedded":"U5h97cFmj8I","likes":"0","section":"webdev-nodejs"},
+{"id":"4","title":"How NodeJS works ?","embedded":"YSyFSnisip0","likes":"0","section":"webdev-nodejs"},
+{"id":"5","title":"What is NPM ? | NodeJS","embedded":"M8nlgBQBxxo","likes":"0","section":"webdev-nodejs"},
+{"id":"6","title":"Modules in NodeJS","embedded":"zKIV3A_aOkY","likes":"0","section":"webdev-nodejs"},
+{"id":"6.5","title":"How a student changed her study habits by setting goals and managing time","embedded":"z7e7gtU3PHY","likes":"0","section":"webdev-nodejs"},
+{"id":"7","title":"fs(File System) Module in NodeJS","embedded":"ZySsdm576wE","likes":"0","section":"webdev-nodejs"},
+{"id":"9","title":"Bitwise Operations tutorial #1 | XOR, Shift, Subsets","embedded":"xXKL9YBWgCY","likes":"0","section":"algorithms"},
+{"id":"10","title":"C++ Bitsets in Competitive Programming","embedded":"jqJ5s077OKo","likes":"0","section":"algorithms"},
+{"id":"11","title":"Binary Search tutorial (C++ and Python)","embedded":"GU7DpgHINWQ","likes":"0","section":"algorithms"},
+{"id":"12","title":"DP#1: Fibonnaci, Iteration vs Recursion","embedded":"YBSt1jYwVfU","likes":"0","section":"algorithms"},
+{"id":"13","title":"DP#2: Coin Change, Double Counting","embedded":"1mtvm2ubHCY","likes":"0","section":"algorithms"},
+{"id":"14","title":"DP#3: Line of Wines","embedded":"pwpOC1dph6U","likes":"0","section":"algorithms"},
+{"id":"15","title":"Linux Setup for Competitive Programming","embedded":"ePZEkbbf3fc","likes":"0","section":"algorithms"}
+]
+}
+,{"type":"table","name":"users","database":"iwp project trial","data":
+[
+{"username":"Apoorv","password":"qwe","email":"apoorvisngh1120@gmail.com","Avatar":"elyse"},
+{"username":"code_breaker","password":"qwe","email":"code_breaker@gmail.com","Avatar":"kristy"},
+{"username":"~ASC","password":"12345","email":"apoorvsingh11@gmail.com","Avatar":"matthew.png"}
+]
+}
+]

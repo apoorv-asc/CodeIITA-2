@@ -17,6 +17,8 @@ db.connect();
 
 var useris='';
 
+const nodemailer = require("nodemailer");
+
 
 // =============================
 //        Authentication
@@ -34,6 +36,7 @@ app.post("/signup",function(req,res){
         username:req.body.username,
         password:req.body.password,
         email:req.body.email,
+        Avatar:req.body.avatar
     }
     mind=false;
     mind2=false;
@@ -208,7 +211,6 @@ app.get("/blogs/manage",function(req,res){
 
 app.get("/blog/delete/:id",function(req,res){
     let sql="DELETE FROM blogs WHERE id="+req.params.id;
-    // console.log(sql);
     db.query(sql);
     res.redirect("/blogs/manage");
 })
@@ -320,11 +322,46 @@ app.get("/password_recovery",function(req,res){
 })
 
 app.post("/password_recovery",function(req,res){
+    var sql="SELECT username, email FROM users WHERE username=\""+req.body.username+"\"";
+    db.query(sql,function(err,user){
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'apoorvsingh1120@gmail.com',
+              pass: 'cliffsofmoher'
+            }
+          });
+          
+          var mailOptions = {
+            from: 'apoorvsingh1120@gmail.com',
+            to: user[0].email,
+            subject: 'CodeIITA - Password Recovery',
+            html:'<h1>Link for mail recovery</h1><br><p>localhost:4200/new_password/'+user[0].username+"</p>"
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              res.redirect("/passsword_recovery");
+            }
+          });
+    })
+})
 
+app.get("/new_password/:username",function(req,res){
+    res.render("new_password",{user:useris,username:req.params.username});
+})
+
+app.post("/new_password/:username",function(req,res){
+    var sql="UPDATE users SET password=\""+req.body.password+"\" WHERE username=\""+req.params.username+"\"";
+    db.query(sql);
+    res.redirect("/signin");
 })
 
 app.get("/upvote/:id/:likes/:section/:embedded",function(req,res){
     var likes=Number(req.params.likes)+1;
+    var sql="UPDATE comments SET likes="+likes+" WHERE id="+req.params.id;
     db.query(sql,function(err){
         if(err)
             throw err;
