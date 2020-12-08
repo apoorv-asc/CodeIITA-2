@@ -74,6 +74,8 @@ app.post("/signin",function(req,res){
     db.query(sql,function(err,result){
         if(err)
         throw err;
+        else if(result.length==0)
+            res.redirect("/signin");
         else{
             result.forEach((row)=>{
                 useris=row.username;
@@ -336,7 +338,7 @@ app.post("/password_recovery",function(req,res){
             from: 'apoorvsingh1120@gmail.com',
             to: user[0].email,
             subject: 'CodeIITA - Password Recovery',
-            html:'<h1>Link for mail recovery</h1><br><p>localhost:4200/new_password/'+user[0].username+"</p>"
+            html:'<h1>Link for password recovery</h1><br><p>localhost:4200/new_password/'+user[0].username+"</p>"
           };
           
           transporter.sendMail(mailOptions, function(error, info){

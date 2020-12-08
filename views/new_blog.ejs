@@ -5,6 +5,11 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        html,body{
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
 <%- include("partials/header"); %>
@@ -39,7 +44,7 @@
                             <div class="form-group">
                                 <textarea  type="text" name="body" rows="20" cols="157" style="border: 1px rgb(184, 178, 178) solid; border-radius: 5px;" placeholder="body"></textarea>
                             </div>
-                            <input type="submit">
+                            <input class="btn btn-success" type="submit">
                         </form>
                     </div>
                 </div>
@@ -64,7 +69,7 @@
                             <div class="form-group">
                                 <textarea  type="text" name="body" rows="10" cols="157" style="border: 1px rgb(184, 178, 178) solid; border-radius: 5px;" placeholder="Small Intro"></textarea>
                             </div>
-                            <input type="submit">
+                            <input class="btn btn-success" type="submit">
                         </form>
                     </div>
                 </div>
