@@ -329,8 +329,9 @@ app.post("/password_recovery",function(req,res){
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'apoorvsingh1120@gmail.com',
-              pass: 'cliffsofmoher'
+//               Add EMAIL ID and Password here
+              user: '',
+              pass: ''
             }
           });
           
